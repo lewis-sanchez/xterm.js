@@ -2,22 +2,13 @@
 *
 !*/
 
-# Whitelist - css/
-!css/**/*.css
+# Whitelist - lib-headless/
+!lib-headless/**/*.d.ts
 
-# Whitelist - dist/
-!dist/**/*.js
-!dist/**/*.js.map
+!lib-headless/**/*.js
+!lib-headless/**/*.js.map
 
-!dist/**/*.css
-
-# Whitelist - lib/
-!lib/**/*.d.ts
-
-!lib/**/*.js
-!lib/**/*.js.map
-
-!lib/**/*.css
+!lib-headless/**/*.css
 
 # Whitelist - src/
 !src/**/*.ts
@@ -36,7 +27,3 @@ src/**/*.test.js.map
 
 # Whitelist - typings/
 !typings/*.d.ts
-
-# Blacklist - (normal behavior) these will override any whitelist
-headless/
-typings/xterm-headless.d.ts
