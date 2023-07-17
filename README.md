@@ -1,31 +1,28 @@
-# [![xterm.js logo](logo-full.png)](https://xtermjs.org)
+## xterm-addon-canvas
 
-⚠ This package is experimental
+An addon for [xterm.js](https://github.com/xtermjs/xterm.js) that enables a canvas-based renderer using a 2d context to draw. This addon requires xterm.js v5+.
 
-`xterm-headless` is a headless terminal that can be run in node.js. This is useful in combination with the frontend [`xterm`](https://www.npmjs.com/package/xterm) for example to keep track of a terminal's state on a remote server where the process is hosted.
+The purpose of this addon is to be used as a fallback for the [webgl addon](https://www.npmjs.com/package/xterm-addon-webgl) when better performance is desired over the default DOM renderer, but WebGL2 isn't supported or performant for some reason.
 
-## Getting Started
+### Install
 
-First, you need to install the module, we ship exclusively through npm, so you need that installed and then add xterm.js as a dependency by running:
-
-```sh
-npm install xterm-headless
+```bash
+npm install --save xterm-addon-canvas
 ```
 
-Then import as you would a regular node package. The recommended way to load `xterm-headless` is with TypeScript and the ES6 module syntax:
+### Usage
 
-```javascript
-import { Terminal } from 'xterm-headless';
+```ts
+import { Terminal } from 'xterm';
+import { CanvasAddon } from 'xterm-addon-canvas';
+
+const terminal = new Terminal();
+terminal.open(element);
+terminal.loadAddon(new CanvasAddon());
 ```
 
-## API
+See the full [API](https://github.com/xtermjs/xterm.js/blob/master/addons/xterm-addon-canvas/typings/xterm-addon-canvas.d.ts) for more advanced usage.
 
-The full API for `xterm-headless` is contained within the [TypeScript declaration file](https://github.com/xtermjs/xterm.js/blob/master/typings/xterm-headless.d.ts), use the branch/tag picker in GitHub (`w`) to navigate to the correct version of the API.
+### See also
 
-Note that some APIs are marked *experimental*, these are added to enable experimentation with new ideas without committing to support it like a normal [semver](https://semver.org/) API. Note that these APIs can change radically between versions, so be sure to read release notes if you plan on using experimental APIs.
-
-### Addons
-
-Addons in `xterm-headless` work the [same as in `xterm`](https://github.com/xtermjs/xterm.js/blob/master/README.md#addons) with the one caveat being that the addon needs to be packaged for node.js and not use any DOM APIs.
-
-Currently no official addons are packaged on npm.
+- [xterm-addon-webgl](https://www.npmjs.com/package/xterm-addon-webgl) A renderer for xterm.js that uses WebGL

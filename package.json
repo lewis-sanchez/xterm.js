@@ -1,24 +1,27 @@
 {
- "name": "xterm-headless",
- "description": "A headless terminal component that runs in Node.js",
- "version": "5.2.2",
- "main": "lib-headless/xterm-headless.js",
- "types": "typings/xterm-headless.d.ts",
- "repository": "https://github.com/lewis-sanchez/xterm.js",
- "license": "MIT",
- "keywords": [
-  "cli",
-  "command-line",
-  "console",
-  "pty",
-  "shell",
-  "ssh",
-  "styles",
-  "terminal-emulator",
-  "terminal",
-  "tty",
-  "vt100",
-  "webgl",
-  "xterm"
- ]
+  "name": "xterm-addon-canvas",
+  "version": "0.4.1",
+  "author": {
+    "name": "The xterm.js authors",
+    "url": "https://xtermjs.org/"
+  },
+  "main": "lib/xterm-addon-canvas.js",
+  "types": "typings/xterm-addon-canvas.d.ts",
+  "repository": "https://github.com/lewis-sanchez/xterm.js",
+  "license": "MIT",
+  "keywords": [
+    "terminal",
+    "canvas",
+    "xterm",
+    "xterm.js"
+  ],
+  "scripts": {
+    "build": "../../node_modules/.bin/tsc -p .",
+    "prepackage": "npm run build",
+    "package": "../../node_modules/.bin/webpack",
+    "prepublishOnly": "npm run package"
+  },
+  "peerDependencies": {
+    "xterm": "^5.0.0"
+  }
 }
